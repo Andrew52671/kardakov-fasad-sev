@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Кардаков и сыновья | Утепление фасадов в Севастополе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background: rgba(255,255,255,0.96);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img {
+            height: 55px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e3c72;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e66;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #f59e0b;
+        }
+        .phone-top {
+            font-weight: 700;
+            background: #f8fafc;
+            padding: 8px 18px;
+            border-radius: 60px;
+            color: #1e3c72;
+            border: 1px solid #e2e8f0;
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(107deg, #f1f5f9 0%, #e6edf4 100%);
+            padding: 60px 0 70px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0f2b44;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #334155;
+            margin-bottom: 28px;
+        }
+        .hero-badge {
+            background: #fef9e3;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #b45309;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #f59e0b;
+            color: #1e293b;
+            box-shadow: 0 6px 14px rgba(245,158,11,0.3);
+        }
+        .btn-primary:hover {
+            background: #e68a00;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 2px solid #1e3c72;
+            color: #1e3c72;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: #1e3c72;
+            color: white;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .stat-item {
+            font-weight: 700;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #f59e0b;
+        }
+        .hero-image {
+            flex: 1;
+            background: #cbd5e1;
+            border-radius: 32px;
+            padding: 20px;
+            text-align: center;
+            min-height: 260px;
+            background-image: url('https://placehold.co/600x400/e2e8f0/1e293b?text=Наши+работы+Севастополь');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #0f2b44;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 30px 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: 0.25s;
+            border: 1px solid #eef2f6;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: #475569;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            background: #f1f5f9;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .gallery-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .advantage-item {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 24px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .advantage-item span:first-child {
+            font-size: 2rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            counter-reset: step;
+        }
+        .step {
+            flex: 1;
+            background: #f9fbfe;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+        .step:before {
+            counter-increment: step;
+            content: counter(step);
+            background: #f59e0b;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .form-card {
+            background: #f1f5f9;
+            border-radius: 48px;
+            padding: 40px 32px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 28px 0;
+            justify-content: center;
+        }
+        .input-group input, .input-group select {
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: 1px solid #cbd5e1;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 180px;
+            background: white;
+        }
+        .price-result {
+            background: #e9f0f9;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 32px;
+        }
+        .contact-card a {
+            color: #f59e0b;
+            text-decoration: none;
+        }
+        .max-link {
+            display: inline-block;
+            background: #1e3c72;
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 60px;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+        .max-link:hover {
+            background: #f59e0b;
+            color: #1e293b !important;
+        }
+
+        footer {
+            background: #0f2b44;
+            color: #cddfec;
+            padding: 48px 0 30px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .footer a {
+            color: #facc15;
+            text-decoration: none;
+        }
+        @media (max-width: 760px) {
+            .hero-content h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            .container { padding: 0 20px; }
+            section { padding: 50px 0; }
+            .logo img { height: 45px; }
+            .logo-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="logo">
+                <img src="аааа.jfif" alt="Кардаков и сыновья лого">
+                <span class="logo-text">Кардаков и сыновья</span>
+            </div>
+            <div class="nav-links">
+                <a href="#services">Услуги</a>
+                <a href="#gallery">Фото</a>
+                <a href="#why">О нас</a>
+                <a href="#steps">Работа</a>
+                <a href="#calc">Калькулятор</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <a href="tel:+79781657319" class="phone-top">+7 (978) 165-73-19</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">🏆 Строительство · Продажа домов · Фасадные работы</div>
+                <h1>Утепление фасадов в Севастополе</h1>
+                <p>Сократите расходы на отопление до 40%! Защитим дом от влаги, плесени и разрушения. Гарантия 1 год на все работы.</p>
+                <div class="btn-group">
+                    <a href="#calc" class="btn btn-primary">Рассчитать стоимость</a>
+                    <a href="#contact" class="btn btn-outline">Бесплатная консультация</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">350+</span><br>домов утеплено</div>
+                    <div class="stat-item"><span class="stat-number">98%</span><br>довольных клиентов</div>
+                </div>
+            </div>
+            <div class="hero-image">
+                📸 Утепление фасадов в Севастополе
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">🏠 Наши фасадные услуги</h2>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧱</div>
+                    <h3>Утепление пенопластом</h3>
+                    <p>С армирующим слоем, идеально для тёплого и бюджетного фасада. Соблюдение технологии «мокрый фасад».</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪨</div>
+                    <h3>Утепление минеральной ватой</h3>
+                    <p>Паропроницаемая система. Для домов, где важен здоровый микроклимат и дышащие стены.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Декоративная отделка</h3>
+                    <p>Короед, шуба, фасадная краска. Преобразим внешний вид и добавим долговечности.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Реконструкция фасадов</h3>
+                    <p>Обновление старых зданий, замена утеплителя, ремонт трещин и восстановление эстетики.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">📸 Наши работы в Севастополе</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><div class="gallery-placeholder">[Ваше фото 1]</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder">[Ваше фото 2]</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder">[Ваше фото 3]</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder">[Ваше фото 4]</div></div>
+            </div>
+            <p style="text-align: center; margin-top: 24px; color: #475569;">Здесь будут фотографии наших выполненных объектов. Вставьте свои изображения, заменив плейсхолдеры.</p>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают «Кардаков и сыновья»</h2>
+            <div class="advantage-list">
+                <div class="advantage-item"><span>✅</span> Собственные бригады — работаем без посредников</div>
+                <div class="advantage-item"><span>🧾</span> Сертифицированные материалы (Rockwool, Технониколь и др.)</div>
+                <div class="advantage-item"><span>📐</span> Бесплатный замер и смета на объекте</div>
+                <div class="advantage-item"><span>⚙️</span> Полный цикл: от подготовки до финишной отделки</div>
+                <div class="advantage-item"><span>📅</span> Соблюдение сроков — фиксируем в договоре</div>
+                <div class="advantage-item"><span>🛡️</span> Гарантия на работы — 1 год</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="steps" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">🚀 Этапы сотрудничества</h2>
+            <div class="steps">
+                <div class="step"><strong>Выезд специалиста</strong><br>Замер, тепловизионная диагностика, обсуждение пожеланий.</div>
+                <div class="step"><strong>Расчёт и договор</strong><br>Прозрачная смета, выбор материалов под бюджет.</div>
+                <div class="step"><strong>Подготовка и монтаж</strong><br>Очистка, грунтовка, клей, дюбеля, армирование.</div>
+                <div class="step"><strong>Финишная отделка</strong><br>Штукатурка, покраска — готовый красивый фасад.</div>
+                <div class="step"><strong>Сдача объекта</strong><br>Контроль качества, подписание акта, гарантия 1 год.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calc">
+        <div class="container">
+            <div class="form-card">
+                <h3 style="font-size: 1.9rem; margin-bottom: 12px;">💰 Быстрый расчёт стоимости</h3>
+                <p>Укажите параметры вашего дома — получите примерную цену утепления фасада "под ключ" в Севастополе</p>
+                <div class="input-group">
+                    <select id="materialSelect">
+                        <option value="400">Пенопласт (бюджетный)</option>
+                        <option value="650" selected>Минеральная вата (оптимальный)</option>
+                        <option value="870">Премиум система</option>
+                    </select>
+                    <input type="number" id="areaInput" placeholder="Площадь фасада (м²)" value="120">
+                </div>
+                <div class="input-group">
+                    <select id="storeySelect">
+                        <option value="1">До 2 этажей</option>
+                        <option value="1.2">2-3 этажа</option>
+                        <option value="1.4">Выше 3 этажей</option>
+                    </select>
+                </div>
+                <button id="calcButton" class="btn btn-primary" style="border: none; cursor: pointer;">Рассчитать примерную цену</button>
+                <div id="priceResult" class="price-result">
+                    Ориентировочная стоимость: от 78 000 ₽ (материалы + работа)
+                </div>
+                <p style="font-size: 0.85rem; margin-top: 16px;">*Точная смета после выезда мастера. Включает утеплитель, сетку, крепежи, отделку.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="cards-grid" style="align-items: center;">
+                <div>
+                    <h2 class="section-title" style="text-align: left;">❄️ Почему фасад — это важно?</h2>
+                    <ul style="list-style: none; margin-top: 20px;">
+                        <li style="margin-bottom: 12px;">🔹 Снижение затрат на отопление зимой до 40%</li>
+                        <li style="margin-bottom: 12px;">🔹 Защита от влаги, плесени и разрушения стен</li>
+                        <li style="margin-bottom: 12px;">🔹 Улучшенная шумоизоляция и эстетика</li>
+                        <li style="margin-bottom: 12px;">🔹 Повышение стоимости дома при продаже</li>
+                    </ul>
+                </div>
+                <div class="contact-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 16px;">📞 Свяжитесь с нами</h3>
+                    <p><strong>Телефон:</strong> <a href="tel:+79781657319">+7 (978) 165-73-19</a></p>
+                    <p><strong>Наш канал:</strong> <a href="https://max.ru/join/mI59AS2uKIV4fxgnz4bFsJj5pZUd2fC6M6gTtCYxi80" target="_blank" class="max-link">Перейти в канал</a></p>
+                    <p><strong>Город:</strong> Севастополь</p>
+                    <p><strong>Режим работы:</strong> Пн-Сб 9:00–19:00, выезд по городу и району</p>
+                    <a href="tel:+79781657319" class="btn btn-primary" style="margin-top: 16px; display: inline-block;">Позвонить сейчас</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top: 0;">
+        <div class="container" style="text-align: center;">
+            <div style="background: #ffffff; border-radius: 40px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); padding: 28px;">
+                <h3>✅ Гарантия 1 год на все виды работ</h3>
+                <p style="margin-top: 10px;">Наши мастера имеют опыт работы с фасадами в климатических условиях Севастополя — высокая влажность, ветровые нагрузки. Используем армирование и качественные дюбели.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div>
+            <h4>Кардаков и сыновья</h4>
+            <p>Строительство · Продажа домов · Фасадные работы<br>Работаем в Севастополе и Крыму.</p>
+        </div>
+        <div>
+            <p>📞 <a href="tel:+79781657319">+7 (978) 165-73-19</a></p>
+            <p>📍 Севастополь</p>
+            <p>⚡ Выезд специалиста — бесплатно</p>
+        </div>
+        <div>
+            <p>© 2025 Кардаков и сыновья</p>
+            <p>Гарантия 1 год</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        const areaInput = document.getElementById('areaInput');
+        const materialSelect = document.getElementById('materialSelect');
+        const storeySelect = document.getElementById('storeySelect');
+        const calcBtn = document.getElementById('calcButton');
+        const priceDiv = document.getElementById('priceResult');
+
+        function updatePrice() {
+            let area = parseFloat(areaInput.value);
+            if (isNaN(area) || area <= 0) area = 80;
+            const materialPrice = parseFloat(materialSelect.value);
+            const storeyKoef = parseFloat(storeySelect.value);
+
+            let basePricePerSqm = materialPrice;
+            if (materialSelect.value === "400") basePricePerSqm = 410;
+            if (materialSelect.value === "650") basePricePerSqm = 670;
+            if (materialSelect.value === "870") basePricePerSqm = 890;
+
+            let total = area * basePricePerSqm * storeyKoef;
+            total = Math.round(total / 1000) * 1000;
+            priceDiv.innerHTML = `💰 Примерная стоимость: от ${total.toLocaleString()} ₽ <br> (материалы + работа под ключ). Точная смета после замера.`;
+        }
+
+        calcBtn.addEventListener('click', updatePrice);
+        updatePrice();
+    })();
+</script>
+</body>
+</html>
